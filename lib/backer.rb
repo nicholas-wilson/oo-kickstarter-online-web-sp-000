@@ -8,6 +8,14 @@ class Backer
 
   def back_project(project)
     @backed_projects << project
-
+    has_backer = false
+    project.backers.each do |backer|
+      if backer.projects.include?(project)
+        has_backer = true
+      end
+    end
+    if !has_backer
+      project.add_backer(self)
+    end
   end
 end
