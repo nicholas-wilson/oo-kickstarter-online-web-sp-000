@@ -15,7 +15,7 @@ class Project
       end
     end
     if !has_project
-      backer.projects << self
+      backer.add_project(self)
     end
   end
 end
